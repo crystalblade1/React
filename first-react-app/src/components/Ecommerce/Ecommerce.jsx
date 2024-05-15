@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import $ from "jquery";
 
 function Shoeshop() {
-
   let [tnumber, setTnumber] = useState(0);
 
   function addCount() {
@@ -107,25 +106,25 @@ function Shoeshop() {
 
             <div className="counters">
               <div className="counter">
-                <button className="counter-minus" onClick={minusCount}>
-                  <img
-                    id="minus"
-                    src="src/components/Ecommerce/images/icon-minus.svg"
-                    width="20px"
-                    alt="Logo"
-                  />
-                </button>
+                <img
+                  onClick={minusCount}
+                  id="minus"
+                  src="src/components/Ecommerce/images/icon-minus.svg"
+                  width="20px"
+                  alt="Logo"
+                />
+
                 <div className="counter-count">
-                  <h1>{tnumber}</h1>
+                  <p>{tnumber}</p>
                 </div>
-                <button className="counter-plus" onClick={addCount}>
-                  <img
-                    id="plus"
-                    src="src/components/Ecommerce/images/icon-plus.svg"
-                    width="20px"
-                    alt="Logo"
-                  />
-                </button>
+
+                <img
+                  onClick={addCount}
+                  id="plus"
+                  src="src/components/Ecommerce/images/icon-plus.svg"
+                  width="20px"
+                  alt="Logo"
+                />
               </div>
 
               <button>
