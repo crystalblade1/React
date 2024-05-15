@@ -1,0 +1,39 @@
+* {
+    font-family: Raleway;
+  }
+
+  .main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tab-container{
+    display: grid;
+    width: 400px;
+    height:100px;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 2px solid;
+    margin-top: 100px;
+  }
+
+  .grid{
+    display:flex;
+    border: solid 2px;
+    justify-content: center;
+    align-items: center;
+  } 
+
+#grid1{
+  background-color: yellow;
+}
+
+#grid2{
+  background-color: blue;
+}
+
+#grid3{
+  background-color: green;
+}
+
