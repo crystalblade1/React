@@ -24,6 +24,7 @@ header {
 
 .navbar {
   margin-left: 30px;
+
 }
 
 .navbar a {
@@ -35,7 +36,15 @@ header {
 }
 
 .nav-img {
+  display: flex;
   margin-left: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+#cart{
+    height: 30px;
+    width: 30px;
 }
 
 #profile {
@@ -198,6 +207,44 @@ button img{
     margin-right: 30px;
     
 }
+
+  #cartPopup {
+    position: fixed; /* Keep popup on top of other content */
+    top: 12%;
+    left: 78%;
+    background-color: #f7efef;
+    padding: 30px;
+    border: none; 
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #cartPopup::after {
+    content: "";
+    position: absolute;
+    bottom: 100%; /* Position the arrow at the bottom */
+    left: calc(100px - 5px);  /* Adjust position relative to cart icon and arrow size */
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent; /* Chat bubble arrow */
+ 
+  }
+
+  .cart-number{
+    display: flex;
+    justify-content: center;
+    height: 18px;
+    width: 18px;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    background-color: orange;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+
+  }
+  
 
 
 

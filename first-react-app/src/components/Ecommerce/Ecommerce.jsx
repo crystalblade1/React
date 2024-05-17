@@ -1,7 +1,43 @@
-import React, { useState } from "react";
-import $ from "jquery";
+import React, { useState, useEffect, useRef } from "react";
 
 function Shoeshop() {
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false);
+  const [iscartNumber, setIscartNumber] = useState(false);
+  const [iscartFill, setIscartFill] = useState("Your cart is empty");
+  const cartIconRef = useRef(null);
+  const popupRef = useRef(null);
+
+  const togglePopUp = () => {
+    setIsPopUpVisible(!isPopUpVisible);
+  
+  };
+
+  const toggleCartNumber = () => {
+    if(tnumber>0){
+    setIscartNumber(true);
+    }
+  };
+
+  const handleClickOutside = (event) => {
+    if (
+      popupRef.current &&
+      !popupRef.current.contains(event.target) &&
+      cartIconRef.current &&
+      !cartIconRef.current.contains(event.target)
+    ) {
+      setIsPopUpVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  // COUNTER FUNCTION -----------------------------------------
+
   let [tnumber, setTnumber] = useState(0);
 
   function addCount() {
@@ -9,8 +45,11 @@ function Shoeshop() {
   }
 
   function minusCount() {
-    setTnumber(tnumber - 1);
+    if (tnumber > 0) {
+      setTnumber(tnumber - 1);
+    }
   }
+  //--------------------------------------------------------
 
   return (
     <div>
@@ -30,20 +69,33 @@ function Shoeshop() {
 
         <div className="nav-img">
           <img
+            onClick={togglePopUp}
+            ref={cartIconRef}
+            id="cart"
             src="src/components/Ecommerce/images/icon-cart.svg"
             height="auto"
             width="30px"
             alt="Logo"
           />
+          {iscartNumber && (
+            <div className="cart-number" id="hidden-cart-number">
+              {tnumber}
+            </div>
+          )}
           <img
             id="profile"
             src="src/components/Ecommerce/images/image-avatar.png"
             alt="Logo"
           />
+          {isPopUpVisible && (
+            <div id="cartPopup" ref={popupRef}>
+              {iscartFill}
+              <button id="closeCartPopup">Checkout</button>
+            </div>
+          )}
         </div>
       </header>
       <hr className="line" />
-
       <div className="wrapper">
         <div className="main-container">
           <div className="left-container">
@@ -127,7 +179,7 @@ function Shoeshop() {
                 />
               </div>
 
-              <button>
+              <button id="addtocart" onClick={toggleCartNumber}>
                 <img
                   src="src/components/Ecommerce/images/icon-cart.svg"
                   width="20px"
