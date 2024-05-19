@@ -3,20 +3,40 @@ import React, { useState, useEffect, useRef } from "react";
 function Shoeshop() {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
   const [iscartNumber, setIscartNumber] = useState(false);
+  const [iscartIconNumber, setIscartIconNumber] = useState(0);
   const [iscartFill, setIscartFill] = useState("Your cart is empty");
+  const [iscartEmpty, setIscartEmpty] = useState(false);
   const cartIconRef = useRef(null);
   const popupRef = useRef(null);
 
   const togglePopUp = () => {
     setIsPopUpVisible(!isPopUpVisible);
-  
   };
 
   const toggleCartNumber = () => {
-    if(tnumber>0){
-    setIscartNumber(true);
+    if (tnumber > 0) {
+      const pricePerItem = 125.0;
+      const totalPrice = pricePerItem * tnumber;
+      const newCartIconNumber = tnumber + iscartIconNumber;
+      setIscartNumber(true);
+      setIscartEmpty(true);
+      setIscartIconNumber(newCartIconNumber);
+      setIscartFill(
+        `Fall Limited Edition Sneakers $${pricePerItem.toFixed(
+          2
+        )} x  ${newCartIconNumber} $${totalPrice.toFixed(2)}`
+      );
+    } else {
+      alert("Please put an item in the cart first");
     }
   };
+
+  function deleteItem(){
+    event.stopPropagation();
+    setIscartEmpty(false);  
+    setTnumber(0);
+    setIscartIconNumber(0);
+  }
 
   const handleClickOutside = (event) => {
     if (
@@ -79,7 +99,7 @@ function Shoeshop() {
           />
           {iscartNumber && (
             <div className="cart-number" id="hidden-cart-number">
-              {tnumber}
+              {iscartIconNumber}
             </div>
           )}
           <img
@@ -89,8 +109,30 @@ function Shoeshop() {
           />
           {isPopUpVisible && (
             <div id="cartPopup" ref={popupRef}>
-              {iscartFill}
-              <button id="closeCartPopup">Checkout</button>
+              <p>Cart</p>
+              <hr id="breakline" />
+
+              {iscartEmpty ? (
+                <div className="primary-cart-fill">
+                  <div className="cart-fill">
+                    <img
+                      id="cart-thumbnail"
+                      src="src/components/Ecommerce/images/image-product-1.jpg"
+                      width="60px"
+                    />
+                    {iscartFill}
+                    <img onClick={deleteItem}
+                      id="bin"
+                      src="src/components/Ecommerce/images/icon-delete.svg"
+                      height="20px"
+                      width="15px"
+                    />
+                  </div>
+                  <button id="closeCartPopup">Checkout</button>
+                </div>
+              ) : (
+                <p>Your cart is empty</p>
+              )}
             </div>
           )}
         </div>
