@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Modal from "./Modal";
 
 function Shoeshop() {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
@@ -8,6 +9,16 @@ function Shoeshop() {
   const [iscartEmpty, setIscartEmpty] = useState(false);
   const cartIconRef = useRef(null);
   const popupRef = useRef(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalImageSrc, setModalImageSrc] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const imgList = [
+    "src/components/Ecommerce/images/image-product-1.jpg",
+    "src/components/Ecommerce/images/image-product-2.jpg",
+    "src/components/Ecommerce/images/image-product-3.jpg",
+    "src/components/Ecommerce/images/image-product-4.jpg"
+  ];
 
   const togglePopUp = () => {
     setIsPopUpVisible(!isPopUpVisible);
@@ -31,9 +42,9 @@ function Shoeshop() {
     }
   };
 
-  function deleteItem(){
+  function deleteItem() {
     event.stopPropagation();
-    setIscartEmpty(false);  
+    setIscartEmpty(false);
     setTnumber(0);
     setIscartIconNumber(0);
   }
@@ -55,6 +66,24 @@ function Shoeshop() {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  // MODAL FUNCTION -------------------------------------------
+
+  const openModal = (imageSrc,index) => {
+    setModalImageSrc(imageSrc);
+    setIsModalVisible(true);
+    setCurrentIndex(index);
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+    setModalImageSrc("");
+  };
+
+  const handleThumbnailClick = (imageSrc,index) => {
+    setModalImageSrc(imageSrc);
+    setCurrentIndex(index);
+  };
 
   // COUNTER FUNCTION -----------------------------------------
 
@@ -120,8 +149,10 @@ function Shoeshop() {
                       src="src/components/Ecommerce/images/image-product-1.jpg"
                       width="60px"
                     />
+
                     {iscartFill}
-                    <img onClick={deleteItem}
+                    <img
+                      onClick={deleteItem}
                       id="bin"
                       src="src/components/Ecommerce/images/icon-delete.svg"
                       height="20px"
@@ -145,38 +176,48 @@ function Shoeshop() {
               <img src="src/components/Ecommerce/images/image-product-1.jpg" />
             </div>
             <ul className="thumb">
-              <li>
-                <a href="img1" target="imgbox">
+            {imgList.map((item, index) => (
+                <li key={index}>
                   <img
-                    src="src/components/Ecommerce/images/image-product-1-thumbnail.jpg"
+                    src={`src/components/Ecommerce/images/image-product-${index + 1}-thumbnail.jpg`}
                     width="100px"
+                    onClick={() => openModal(item, index)}
                   />
-                </a>
+                </li>
+              ))}
+              {/* <li>
+                <img
+                  src="src/components/Ecommerce/images/image-product-2-thumbnail.jpg"
+                  width="100px"
+                  onClick={() =>
+                    openModal(
+                      "src/components/Ecommerce/images/image-product-2.jpg"
+                    )
+                  }
+                />
               </li>
               <li>
-                <a href="img2" target="imgbox">
-                  <img
-                    src="src/components/Ecommerce/images/image-product-2-thumbnail.jpg"
-                    width="100px"
-                  />
-                </a>
+                <img
+                  src="src/components/Ecommerce/images/image-product-3-thumbnail.jpg"
+                  width="100px"
+                  onClick={() =>
+                    openModal(
+                      "src/components/Ecommerce/images/image-product-3.jpg"
+                    )
+                  }
+                />
               </li>
               <li>
-                <a href="img3" target="imgbox">
-                  <img
-                    src="src/components/Ecommerce/images/image-product-3-thumbnail.jpg"
-                    width="100px"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="img4" target="imgbox">
-                  <img
-                    src="src/components/Ecommerce/images/image-product-4-thumbnail.jpg"
-                    width="100px"
-                  />
-                </a>
-              </li>
+                <img
+                  src="src/components/Ecommerce/images/image-product-4-thumbnail.jpg"
+                  width="100px"
+                  onClick={() =>
+                    openModal(
+                      "src/components/Ecommerce/images/image-product-4.jpg"
+                    )
+                  }
+                />
+              </li> */}
             </ul>
           </div>
           <div className="right-container">
@@ -233,6 +274,13 @@ function Shoeshop() {
           </div>
         </div>
       </div>
+      <Modal
+        isVisible={isModalVisible}
+        imageSrc={modalImageSrc}
+        onClose={closeModal}
+        onThumbnailClick={handleThumbnailClick}
+        currentIndex={currentIndex}
+      />
     </div>
   );
 }
