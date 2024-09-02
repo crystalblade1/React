@@ -1,0 +1,22 @@
+
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    h2{
+        color: white;
+    }
+}
+.tas{
+    padding: 1rem;
+    width: 250px;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 1rem;
+
+    button{
+        float: right;
+    }
+
+}
