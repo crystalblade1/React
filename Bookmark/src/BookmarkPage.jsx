@@ -30,7 +30,7 @@ const BookmarkPage = () => {
     <div>
       <header>
         <img
-          src="./public/images/logo-bookmark.svg"
+          src={"/images/logo-bookmark.svg"}
           alt="bookmark-logo"
           id="logo"
         />
@@ -56,7 +56,7 @@ const BookmarkPage = () => {
                 </g>
               </g>
             </svg>
-            <img src="./public/images/icon-close.svg" alt="close-button" onClick={() => setIsNavOpen(false)} />
+            <img src={"/images/icon-close.svg"} alt="close-button" onClick={() => setIsNavOpen(false)} />
             
             </div>
             <hr className="mobile-hr"/>
@@ -99,7 +99,7 @@ const BookmarkPage = () => {
         <a href="#">
           <button>LOGIN</button>
         </a>
-        <img src="./public/images/icon-hamburger.svg" alt="hamburger" id="menu" onClick={()=> setIsNavOpen(!isNavOpen)}/>
+        <img src={"/images/icon-hamburger.svg"} alt="hamburger" id="menu" onClick={()=> setIsNavOpen(!isNavOpen)}/>
       </header>
       <section className="main">
         <div className="text-container">
@@ -115,7 +115,7 @@ const BookmarkPage = () => {
           </div>
         </div>
         <div className="bg-hero">
-          <img src="./public/images/illustration-hero.svg" alt="bg-hero" />
+          <img src={"/images/illustration-hero.svg"} alt="bg-hero" />
           <div className="purple-container"></div>
         </div>
       </section>

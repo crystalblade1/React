@@ -138,7 +138,7 @@ const Features = () => {
           <section className="tabs-section" id="tab1">
             <picture>
               <img
-                src="./public/images/illustration-features-tab-1.svg"
+                src={"/images/illustration-features-tab-1.svg"}
                 alt="illustration-images"
               />
             
@@ -158,7 +158,7 @@ const Features = () => {
           <section className="tabs-section" id="tab2">
             <picture>
               <img
-                src="./public/images/illustration-features-tab-2.svg"
+                src={"/images/illustration-features-tab-2.svg"}
                 alt="illustration-images"
               />
             </picture>
@@ -176,7 +176,7 @@ const Features = () => {
           <section className="tabs-section" id="tab3">
             <picture>
               <img
-                src="./public/images/illustration-features-tab-3.svg"
+                src={"/images/illustration-features-tab-3.svg"}
                 alt="illustration-images"
               />
             </picture>
@@ -202,21 +202,21 @@ const Features = () => {
         </p>
         <div className="browser-cards">
           <div className="card" id="chrome-card">
-            <img src="./public/images/logo-chrome.svg" alt="chrome" />
+            <img src={"/images/logo-chrome.svg"} alt="chrome" />
             <h3 className="add-browser">Add to chrome</h3>
             <p className="version">Minimum version 62</p>
             <button>Add & Install Extension</button>
           </div>
 
           <div className="card" id="firefox-card">
-            <img src="./public/images/logo-firefox.svg" alt="firefox" />
+            <img src={"/images/logo-firefox.svg"} alt="firefox" />
             <h3 className="add-browser">Add to firefox</h3>
             <p className="version">Minimum version 62</p>
             <button>Add & Install Extension</button>
           </div>
 
           <div className="card" id="opera-card">
-            <img src="./public/images/logo-opera.svg" alt="opera" />
+            <img src={"/images/logo-opera.svg"} alt="opera" />
             <h3 className="add-browser">Add to opera</h3>
             <p className="version">Minimum version 62</p>
             <button>Add & Install Extension</button>
@@ -238,9 +238,9 @@ const Features = () => {
                 {item.question}
                 <span>
                   {selectedQuestion === i ? (
-                    <img src="./public/images/icon-arrow.svg" />
+                    <img src={"/images/icon-arrow.svg"} />
                   ) : (
-                    <img src="./public/images/icon-arrow.svg" />
+                    <img src={"/images/icon-arrow.svg"} />
                   )}
                 </span>
               </div>

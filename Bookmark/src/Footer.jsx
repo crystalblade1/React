@@ -28,7 +28,7 @@ const Footer = () => {
           placeholder="enter your email address"
           ref={inputFocus}
         />
-        {check===false && (<img src="./public/images/icon-error.svg" className="error-icon"/>)}
+        {check===false && (<img src={"/images/icon-error.svg"} className="error-icon"/>)}
         {check ===false && (<div className="error-message">
             <p>Whoops, make sure it's a valid email</p>
         </div>)}
