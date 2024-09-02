@@ -141,6 +141,7 @@ const Features = () => {
                 src="./src/images/illustration-features-tab-1.svg"
                 alt="illustration-images"
               />
+            
             </picture>
             <div className="tab-container">
               <h1>Bookmark in one click</h1>
