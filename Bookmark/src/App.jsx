@@ -1,6 +1,6 @@
 import BookmarkPage from './BookmarkPage'
 import Features from './Features'
-import Footer from './footer'
+import Footer from './Footer'
 
 function App() {
 
