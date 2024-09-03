@@ -23,7 +23,7 @@ const BookmarkPage = () => {
 
     return () => window.removeEventListener("resize",handleResize);
 
-  },[]);
+  },[isNavOpen]);
 
 
   return (
