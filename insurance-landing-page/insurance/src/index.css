@@ -1,0 +1,158 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main-frame{
+    position: relative;
+    width: 100%;
+    background-color: hsl(256, 26%, 20%);
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+img{
+    height: 15px;
+    margin-right: auto;
+}
+
+header{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    background-color: white;
+    padding: 10px 10%;
+
+}
+nav{
+    float: right;
+  
+}
+
+nav li {
+    display: inline-block;
+    padding: 0px 20px;
+     a{
+        text-decoration: none; 
+     }
+}
+nav ul{
+     list-style: none;
+}
+
+h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+p{
+    font-size: 1.2rem;
+    line-height: 25px;
+}
+
+.main-frame button{
+    margin-top: 10px;
+    border: none;
+    height: 50px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    font-weight: 700;
+}
+
+.main-text{
+    color: white;
+    padding-left: 100px;
+    width: 30%;
+    height: 300px;
+    margin-left: 100px;
+  
+}
+.main-frame img{
+    position: absolute;
+    height: 550px;
+    top: 15%;
+    left: 50%;
+}
+
+.descriptions{
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    height: auto;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    width: 70%;
+
+    h1{
+        font-size: 3.4rem;
+    }
+}
+.pattern{
+    display: flex;
+    height: 250px;
+    margin-top: 20px;
+}
+
+.snappy-process, .affordable-prices, .people-first{
+    height: 100%;
+    flex-grow: 1;
+
+    img{
+        height: 80px;
+    }
+    h1{
+        font-size: 1.8rem;
+        padding-top: 20px;
+    }
+    p{
+        font-size: 1.2rem;
+        color: grey;
+    }
+
+} 
+.banner{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 200px;
+    background-color: hsl(256, 26%, 20%);
+    width: 90%;
+    margin-inline: auto;
+    margin-top: 100px;
+
+    h1{
+        font-size: 2.5rem;
+        color: white;
+        width: 40%;
+    }
+    button{
+        align-self: center;
+        height: 40px;
+        width: 150px;
+    }
+}
+
+footer{
+    margin-top: 100px;
+
+    hr{
+        margin-top: 30px;
+        opacity: 20%;
+    }
+}
+
+.links-wrapper{
+    display: flex;
+    padding-block: 30px;
+
+}
+.links{
+    flex-grow: 1;
+    
+    p{
+        font-size: 1rem;
+    }
+}

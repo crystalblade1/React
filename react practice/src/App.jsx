@@ -1,13 +1,20 @@
 // import PropsPractice from "./propsPractice"
-import displayList from "./displayList"
+// import DisplayLists from "./DisplayLists"
+// import AddInputField from "./AddInputField";
+// import DynamicForm from "../DynamicForm";
+import UserProfileList from "./FetchAPIApp/UserProfileList"
 
 function App() {
 
+  // const items = ["Apple", "Banana", "Cherry", "Date"];
 
   return (
-    <>
+    <>   
 {/* <PropsPractice title="Hello World"/> */}
-      <displayList/>
+{/* <DisplayLists items={items}/> */}
+{/* <AddInputField/> */}
+{/* <DynamicForm/> */}
+<UserProfileList/>
     </>
   )
 }

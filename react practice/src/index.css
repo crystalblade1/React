@@ -1,15 +1,17 @@
-
-h1{
-
-}
-
 body{
-    position: relative;
+    display: flex;
+    justify-content: center;
 }
-
-button{
-    position: absolute;
-    height: 2rem;
-    width: 6rem;
+input{
+    height: 1.5rem;
+    width: 10rem;
+    margin-right: 1rem;
     margin-top: 5rem;
+}
+.button{
+    height: 1.7rem;
+    width: 6rem;
+}
+#remove-button{
+    margin-right: 1rem;
 }
